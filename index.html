@@ -11,22 +11,29 @@
   <body>
     <header>
       <h1>Find your film</h1>
-
       <p>My watchlist</p>
     </header>
     <div class="search-bar">
-      <label for="search" class="search-icon">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </label>
-      <input
-        type="search"
-        placeholder="Search for a movie"
-        id="search"
-        name="search"
-        class="search-input"
-      />
+      <div>
+        <label for="search" class="search-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+        <input
+          type="search"
+          placeholder="Search for a movie"
+          id="search"
+          name="search"
+          class="search-input"
+        />
+      </div>
       <button id="search-btn" class="search-btn">Search</button>
     </div>
+    <main class="main-container" id="main-container">
+      <div class="placeholder">
+        <img class="placeholder-img" src="./images/placeholder.png" />
+        <p>Start exploaring</p>
+      </div>
+    </main>
     <script
       src="https://kit.fontawesome.com/796db5f96c.js"
       crossorigin="anonymous"

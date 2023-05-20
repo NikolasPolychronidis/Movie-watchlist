@@ -6,9 +6,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Inter';
 }
 
+body {
+  font-family: 'Inter';
+}
 header {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)),
     url('./images/header-img.jpg');
@@ -29,6 +31,7 @@ header {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 75%;
   border-radius: 0.375em;
   min-height: 2.375rem;
@@ -49,6 +52,7 @@ header {
   border-radius: inherit;
   color: inherit;
   min-width: 10%;
+  align-self: stretch;
 }
 .search-btn:hover {
   background-color: #ece7e7;
@@ -57,4 +61,27 @@ header {
 .search-icon {
   padding-left: 0.5em;
   align-self: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 13rem);
+  padding: 4em;
+  gap: 2em;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.placeholder-img {
+  height: 50px;
+  width: 50px;
 }
