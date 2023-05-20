@@ -7,14 +7,36 @@
     <title>Movie Watchlist</title>
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
+    <link
+      href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
     <header>
       <h1>Find your film</h1>
+
       <p>My watchlist</p>
     </header>
+    <div class="search-bar">
+      <label for="search" class="search-icon">
+        <i
+          class="search-thingy fa-solid fa-magnifying-glass"
+          style="color: #000000"
+        ></i>
+      </label>
+      <input
+        type="search"
+        placeholder="Search for a movie"
+        id="search"
+        name="search"
+        class="search-input"
+      />
+      <button id="search-btn" class="search-btn">Search</button>
+    </div>
     <script
-      src="https://kit.fontawesome.com/796db5f96c.js"
+      src="http://kit.fontawesome.com/796db5f96c.js"
       crossorigin="anonymous"
     ></script>
     <script src="index.js"></script>
