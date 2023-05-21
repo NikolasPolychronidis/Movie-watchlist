@@ -23,6 +23,11 @@ header {
   color: aliceblue;
 }
 
+hr {
+  background: grey;
+  width: 100%;
+}
+
 .search-bar {
   position: absolute;
   top: 12rem;
@@ -82,6 +87,85 @@ main {
 }
 
 .placeholder-img {
-  height: 50px;
-  width: 50px;
+  height: 3.125em; /* Equivalent to 50px */
+  width: 3.125em; /* Equivalent to 50px */
+}
+/* movie container */
+.movie-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.poster-container {
+  max-height: 482px;
+  max-width: 326px;
+}
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.poster {
+  height: 100%;
+  width: 100%;
+}
+
+.movie-headline {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.5em;
+  justify-content: space-between;
+}
+
+.movie-info {
+  display: flex;
+  align-items: space-between;
+  justify-content: space-between;
+}
+
+.movie-info * {
+  font-size: 0.7em;
+}
+
+.watchlist-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  font-size: inherit;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 1.3rem;
+  }
+
+  .movie-container {
+    display: flex;
+    flex-direction: row; /* Display elements side by side */
+    gap: 3em;
+    height: 100%;
+    width: 90vw;
+    justify-content: space-between;
+  }
+
+  .poster-container {
+    flex: 1; /* Use flex property to adjust width */
+  }
+
+  .movie-content {
+    flex: 2; /* Use flex property to adjust width */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+  }
+
+  .movie-headline {
+    display: flex;
+    justify-content: start;
+    gap: 1em;
+  }
 }
