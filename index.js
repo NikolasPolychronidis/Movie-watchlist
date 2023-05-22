@@ -2,7 +2,7 @@ let movies = []; // Declare movies array in the global scope
 let watchlistMovies = [];
 async function fetchMovies(searchTerm) {
   const response = await fetch(
-    `http://www.omdbapi.com/?s=${encodeURIComponent(
+    `https://www.omdbapi.com/?s=${encodeURIComponent(
       searchTerm
     )}&apikey=5adf1410`
   );
@@ -11,7 +11,7 @@ async function fetchMovies(searchTerm) {
     movies = await Promise.all(
       data.Search.map(async movie => {
         const response = await fetch(
-          `http://www.omdbapi.com/?i=${movie.imdbID}&apikey=5adf1410`
+          `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=5adf1410`
         );
         const fullMovieData = await response.json();
         return fullMovieData;
