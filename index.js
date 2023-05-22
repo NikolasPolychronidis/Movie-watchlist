@@ -1,5 +1,6 @@
-let movies = []; // Declare movies array in the global scope
+let movies = [];
 let watchlistMovies = [];
+
 async function fetchMovies(searchTerm) {
   const response = await fetch(
     `https://www.omdbapi.com/?s=${encodeURIComponent(
@@ -23,7 +24,6 @@ async function fetchMovies(searchTerm) {
   }
 }
 
-// Render the movie data
 function renderMovieContainer(movies) {
   let feedHtml = '';
 
@@ -62,14 +62,12 @@ function renderMovieContainer(movies) {
 
   document.getElementById('main-container').innerHTML = feedHtml;
 
-  // Add event listeners to watchlist buttons
   const watchlistButtons = document.querySelectorAll('.watchlist-container');
   watchlistButtons.forEach(button => {
     button.addEventListener('click', addToWatchlist);
   });
 }
 
-// Event listeners for the search input and button
 const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('search-btn');
 
@@ -83,7 +81,6 @@ searchButton.addEventListener('click', function () {
   fetchMovies(searchInput.value);
 });
 
-// Add to Watchlist function
 function addToWatchlist() {
   const imdbID = this.dataset.imdbid;
   const movie = movies.find(movie => movie.imdbID === imdbID);
@@ -122,8 +119,8 @@ function renderWatchlistMovies() {
             <h4 class="movie-runtime" id="movie-runtime">${movie.Runtime}</h4>
             <h4 class="movie-genre" id="movie-genre">${movie.Genre}</h4>
             <button class="watchlist-container" data-imdbid="${movie.imdbID}">
-              <i class="fa-solid fa-circle-plus"></i>
-              <h4 class="add-watchlist">Watchlist</h4>
+              <i class="fa-solid fa-circle-minus"></i>
+              <h4 class="remove-watchlist">Watchlist</h4>
             </button>
           </div>
           <p class="movie-description" id="movie-description">
@@ -134,8 +131,18 @@ function renderWatchlistMovies() {
   }
 
   document.getElementById('main-container').innerHTML = watchlistHtml;
+
+  const removeButtons = document.querySelectorAll('.watchlist-container');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', removeFromWatchlist);
+  });
 }
 
-// Event listener for the "My watchlist" link
+function removeFromWatchlist() {
+  const imdbID = this.dataset.imdbid;
+  watchlistMovies = watchlistMovies.filter(movie => movie.imdbID !== imdbID);
+  renderWatchlistMovies();
+}
+
 const watchlistBtn = document.getElementById('watchlist-btn');
 watchlistBtn.addEventListener('click', renderWatchlistMovies);
