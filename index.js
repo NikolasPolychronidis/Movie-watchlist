@@ -96,3 +96,46 @@ function addToWatchlist() {
 
   console.log(watchlistMovies);
 }
+
+function renderWatchlistMovies() {
+  let watchlistHtml = '';
+
+  for (let movie of watchlistMovies) {
+    watchlistHtml += `
+      <div class="movie-container" id="movie-container">
+        <div class="poster-container">
+          <img
+            src="${movie.Poster}"
+            alt=""
+            class="poster"
+            id="poster"
+          />
+        </div>
+        <div class="movie-content">
+          <div class="movie-headline" id="movie-headline">
+            <h1 class="movie-title" id="movie-title">${movie.Title}</h1>
+            <h1 class="movie-rating" id="movie-rating">
+              <i class="fa-solid fa-star" style="color: #fec654">${movie.imdbRating}</i>
+            </h1>
+          </div>
+          <div class="movie-info" id="movie-info">
+            <h4 class="movie-runtime" id="movie-runtime">${movie.Runtime}</h4>
+            <h4 class="movie-genre" id="movie-genre">${movie.Genre}</h4>
+            <button class="watchlist-container" data-imdbid="${movie.imdbID}">
+              <i class="fa-solid fa-circle-plus"></i>
+              <h4 class="add-watchlist">Watchlist</h4>
+            </button>
+          </div>
+          <p class="movie-description" id="movie-description">
+            ${movie.Plot}
+          </p>
+        </div>
+      </div>`;
+  }
+
+  document.getElementById('main-container').innerHTML = watchlistHtml;
+}
+
+// Event listener for the "My watchlist" link
+const watchlistBtn = document.getElementById('watchlist-btn');
+watchlistBtn.addEventListener('click', renderWatchlistMovies);

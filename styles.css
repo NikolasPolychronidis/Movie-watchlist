@@ -50,7 +50,7 @@ hr {
 }
 .search-input {
   border: none;
-  width: 87%;
+  width: 80%;
 }
 
 .search-btn {
@@ -100,6 +100,9 @@ main {
   width: 100%;
   flex-direction: column;
   gap: 1em;
+
+  justify-content: center;
+  align-items: center;
 }
 
 .poster-container {
@@ -140,6 +143,13 @@ main {
   gap: 0.2em;
   font-size: inherit;
   background-color: white;
+  border: none;
+}
+
+.watchlist-btn {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 768px) {
